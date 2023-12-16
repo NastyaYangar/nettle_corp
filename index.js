@@ -6,14 +6,21 @@ const text = require('./const')
 const bot = new Telegraf(process.env.BOT_TOKEN)
 
 //Команда start начало работы бота, приветственное сообщение
-bot.start((ctx) => ctx.replyWithHTML(`<b>Привет ${ctx.message.from.first_name ? ctx.message.from.first_name : 'друг'}!</b>
+    bot.start(async (ctx) => {
+      await ctx.replyWithPhoto({ source: 'img/team.jpg' });
+      return ctx.replyWithHTML(`<b>Привет ${ctx.message.from.first_name ? ctx.message.from.first_name : 'друг'}!</b>
 Добро пожаловать в <b>NETTLE</b>!💚 💚 💚
 
+<b>Компанию, где всё начинается с людей!</b>
+    
 Перед началом обучения скачай: 
-
+    
 📒✏️Учебный материал📒✏️
+    
+➡️ <b>Меню</b> ⤵️
 
-➡️ <b>Меню</b> ➡️ <b>Основное меню</b>`))
+<b>Основное меню</b>`);
+    });
 
 
 bot.on(message('sticker'), (ctx) => ctx.reply('👍'))
@@ -270,43 +277,7 @@ bot.launch()
 process.once('SIGINT', () => bot.stop('SIGINT'))
 process.once('SIGTERM', () => bot.stop('SIGTERM'))
 
-    
-        //[Markup.button.callback('Компания', 'btn_1')], 
-        //[Markup.button.callback('Стандарты униформы', 'btn_3')],
-        //[Markup.button.callback('Стандарты обслуживания', 'btn_4')],
-        //[Markup.button.callback('Мерчандайзинг', 'btn_5')],
 
-    //[Markup.button.callback('Стандарты обслуживания', 'test_btn1') ],
-    //[Markup.button.callback('Мерчандайзинг', 'test_btn2'), Markup.button.callback('О товаре', 'test_btn3')],
-    //[Markup.button.callback('Итоговый тест', 'test_btn4')],
-
-
-     //[Markup.button.callback('Часть 1', 'category2_btn1'), Markup.button.callback('Часть 2', 'category2_btn2'), Markup.button.callback('Часть 3', 'category2_btn3')],
-
-
-     //addActionBot('test_btn1', false, text.test1, false, 'menu_btn')
-     //addActionBot('test_btn2', false, text.test2, false, 'menu_btn')
-     //addActionBot('test_btn3', false, text.test3, false, 'menu_btn')
-     //addActionBot('test_btn4', 'img/Yoda.jpg', text.test4, false, 'menu_btn')
-
-      //addActionBot('category2_btn1', false, text.sales1, false, 'menu_btn')
-      //addActionBot('category2_btn2', false, text.sales2, false, 'menu_btn')
-      //addActionBot('category2_btn3', false, text.sales3, false, 'menu_btn')
-
-
-       //addActionBot('btn_1', 'img/team.jpg', text.text1, false, 'menu_btn')
- //addActionBot('btn_2', 'img/product.jpg', text.text2, false, 'menu_btn')
- //addActionBot('btn_3', 'img/uniform.jpg', text.text3, false, 'menu_btn')
- //addActionBot('btn_4', 'img/service.jpg', text.text4, false, 'menu_btn')
- //addActionBot('btn_5', 'img/merch.jpg', text.text5, false, 'menu_btn')
-
-
-
- //addActionBot('task_btn1', false, text.task1, 'work_btn', 'menu_btn')
- //addActionBot('task_btn2', false, text.task2, 'work_btn', 'menu_btn')
- //addActionBot('task_btn3', false, text.task3, 'work_btn', 'menu_btn')
- //addActionBot('task_btn4', false, text.task4, 'work_btn', 'menu_btn')
- //addActionBot('task_btn5', false, text.task5, 'work_btn', 'menu_btn')
 
 
 
